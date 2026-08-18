@@ -1,0 +1,9 @@
+.tarjeta-presentacion{
+    box-sizing: border-box;
+    width: 350px;
+    padding: 25px;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px #6c6060;
+    margin: 40px auto;
+}
