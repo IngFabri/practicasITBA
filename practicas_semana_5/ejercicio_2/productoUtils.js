@@ -6,13 +6,14 @@ function traerStock(callback){
                 return callback(err,null)
             }           
             const lines = data.toString().split("\n")
-            const stock = lines.map(line => line.split(" - "))
+            const rawStock = lines.map(line => line.split("-"))
+            const stock = rawStock.map(product => [product[0].trim(),product[1].trim()])
         
             callback(null,Object.fromEntries(stock))
         })
 }
 
-function estaDisponible(productoBuscado,callback){
+function consultarStock(productoBuscado,callback){
     traerStock((err,stock) => {
         if(err){
             callback(err,null)
@@ -24,5 +25,5 @@ function estaDisponible(productoBuscado,callback){
 
 module.exports = {
     traerStock,
-    estaDisponible
+    consultarStock
 }
